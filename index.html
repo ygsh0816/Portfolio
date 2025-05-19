@@ -1289,20 +1289,8 @@
     <div class="back-to-top">   
         <i class="fas fa-arrow-up"></i>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <script>    
-
-const serviceID = "";
-const templateID = "";
-const autoReplyTemplateID = "";
-const publicKey = "";
-
-
-// Initialize EmailJS
-// Ensure that the public key is valid
-(function() {
-    emailjs.init(publicKey); // Replace with your valid EmailJS key
-})();
 
 // Preloader
 window.addEventListener('load', function() {
@@ -1429,36 +1417,6 @@ document.querySelectorAll('.skill-card').forEach((card, index) => {
     // Add subtle floating animation
     card.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite alternate`;
 });
-
-// Handle form submission (prevent default for demo)
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Send auto-reply to the user
-    const userEmail = document.querySelector('#email').value; // Get user's email
-    console.log(userEmail);
-    emailjs.send(serviceID, autoReplyTemplateID, {
-        email: userEmail, // Send auto-reply to the user's email
-        name: document.querySelector('#name').value, // User's name
-    }).then(function () {
-        console.log("Auto-reply sent successfully!");
-    }).catch(function (error) {
-        console.error("Failed to send auto-reply:", error);
-    });
-
-    // Send form details to yourself
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(function () {
-            alert("Message sent successfully!");
-            contactForm.reset();
-        }).catch(function (error) {
-            alert("Failed to send message. Please try again later.");
-            console.error("EmailJS Error:", error);
-        });
-    });
-}
 
 // Typed.js-like text effect
 document.addEventListener('DOMContentLoaded', function() {
