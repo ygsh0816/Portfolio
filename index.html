@@ -904,6 +904,110 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
+
+        #recommendations {
+    background-color: var(--gray); /* Same background color as the Projects section */
+    position: relative;
+    overflow: hidden;
+}
+
+#recommendations::before {
+    content: '';
+    position: absolute;
+    top: -300px;
+    left: -300px;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, rgba(93, 63, 211, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+#recommendations::after {
+    content: '';
+    position: absolute;
+    bottom: -300px;
+    right: -300px;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(93, 63, 211, 0.05) 100%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Increased min-width to 500px */
+    gap: 40px; /* Increased gap for better spacing */
+    margin-top: 40px;
+    position: relative;
+    z-index: 1; /* Ensure content is above the background effects */
+}
+
+.recommendation-card {
+    background-color: #f9f9f9;
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    position: relative;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-card p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.recommendation-card h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.recommendation-card .position {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.recommendation-card .relationship {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0077b5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.linkedin-link i {
+    font-size: 1.2rem;
+    color: #0077b5;
+}
+
+.linkedin-link:hover {
+    color: #005582;
+    text-decoration: underline;
+}
+
+.linkedin-link:hover i {
+    color: #005582;
+}
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -1034,6 +1138,7 @@
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#portfolio">Projects</a>
+                    <a href="#recommendations">Recommendations</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <button class="menu-btn"><i class="fas fa-bars"></i></button>
@@ -1196,10 +1301,91 @@
             </div>
         </div>
     </section>
+    <!-- Recommendations section -->
+<section id="recommendations" class="section-spacing">
+    <div class="container">
+        <div class="section-title animate-on-scroll">
+            <h2>Recommendations</h2>
+        </div>
+        <div class="recommendations-grid">
+            <!-- Recommendation 1 -->
+            <div class="recommendation-card animate-on-scroll">
+                <p>"I had the pleasure of working alongside Yogesh for a period of time, and even though our direct collaboration was limited, he always came across as professional, friendly, and dependable. Yogesh brought a positive attitude to the office and was someone who clearly valued being present and contributing to the team's environment. I appreciated his approachable nature and commitment to his work—qualities that make him a great addition to any team."</p>
+                <h4>David Recheni</h4>
+                <p class="position">Co-Founder @kopff, Senior Frontend Engineer @Kraken</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/david-recheni/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <!-- Recommendation 2 -->
+            <div class="recommendation-card animate-on-scroll">
+                <p>"I had the pleasure of working with Yogesh, and it was a great experience. He showed strong interest in the project and was highly proactive. During our collaboration, he demonstrated excellent application development skills and played a key role in supporting the team with critical and time-sensitive deliverables."</p>
+                <h4>Deepanshu Saxena</h4>
+                <p class="position">Principal Engineer @Mercer</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/deepanshu-saxena-b64171b0/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <!-- Recommendation 3 -->
+            <div class="recommendation-card animate-on-scroll">
+                <p>"Yogesh is very professional and knowledgeable. His expertise in testing had made tremendous contributions to our testing efforts especially in the automation area. I highly recommended him to be part of your team."</p>
+                <h4>Hoi Hung (Steve) Cheng</h4>
+                <p class="position">Senior Software Engineer at Consumer Reports</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/kexsteve/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <div class="recommendation-card animate-on-scroll">
+                <p>"Yogesh joined my team as a consultant and quickly became a key resource. He has contributed consistently to various projects and delivered on time. He does not take a step back when tight deadline comes and prioritizes tasks accordingly. His approach to problems combined with his technical knowledge makes him a good resource for any team."</p>
+                <h4>Siva Puvvula</h4>
+                <p class="position">Director, Data Architecture and Engineering at Consumer Reports</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/siva-puvvula/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <div class="recommendation-card animate-on-scroll">
+                <p>"I had the pleasure to work with Yogesh for nearly 2 years. He worked as a Backend Developer / Tech Lead for the project I was leading as a Product Owner. 
+                    When Yogesh started at Fosanis, he very quickly got to grips with the undocumented legacy code he had to take over, and was able to ensure the maintenance of our backend system from the start. Over time we were able to work together on the renovation of the system, always in agreement with the business goals. Yogesh was a great support in introducing an agile way of working and was always friendly and motivated, even when priorities changed from one day to the next. Yogesh is a great team player and has helped to build the Dev team. I always enjoyed our little talks and brainstormings about how to repair and renovate things."</p>
+                <h4>Anke Ruggaber</h4>
+                <p class="position">Senior Consultant Products & Delivery bei esentri</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/anke-ruggaber-963152199/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <div class="recommendation-card animate-on-scroll">
+                <p>"I’ve had the pleasure of working with Yogesh on multiple projects where we collaborated on reviewing technical specification documents for platform releases and enhancements, as well as conducting comprehensive end-to-end UAT testing.
+                    
+                    Yogesh brings deep technical knowledge, a strong sense of motivation, and a consistently positive attitude to every task. He is a reliable team player and a valuable contributor to any team or organization.
+                    
+                    I would highly recommend Yogesh for any future opportunities and would gladly welcome the chance to work with him again.</p>
+                <h4>Robert Lew</h4>
+                <p class="position">Associate Director, Data Governance at Consumer Reports</p>
+                <p class="relationship">Worked in the Same Team</p>
+                <a href="https://www.linkedin.com/in/robert-lew-66617920/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+            <div class="recommendation-card animate-on-scroll">
+                <p>"Yogesh reported to me directly and consistently demonstrated a strong work ethic and commitment to excellence. He is sharp, quick to grasp new concepts, and brings an innovative approach to problem-solving. What sets him apart is his determination—he treats every goal as a personal mission and pursues it with relentless focus until it is successfully achieved."</p>
+                <h4>Arnav Saxena</h4>
+                <p class="position">Director at Arxena</p>
+                <p class="relationship">Managed Directly</p>
+                <a href="https://www.linkedin.com/in/arnavsaxena/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> View Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Contact section -->
     <section class="contact section-spacing" id="contact">
-        <div class="container">
+        <div class="container">  
             <div class="section-title animate-on-scroll">
                 <h2>Get In Touch</h2>
             </div>
@@ -1243,31 +1429,10 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <!-- <div class="contact-form animate-on-scroll">
-                    <form id="contact-form">
-                      <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" required></textarea>
-                      </div>
-                      <button type="submit" class="btn">Send Message</button>
-                    </form>
-                  </div> -->
             </div>
         </div>
     </section>
-
+ 
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1279,6 +1444,7 @@
                     <a href="#skills">Skills</a>
                     <a href="#portfolio">Projects</a>
                     <a href="#contact">Contact</a>
+                    <a href="#recommendations">Recommendations</a>
                 </div>
                 <p>&copy; 2025 Yogesh Kumar. All Rights Reserved.</p>
             </div>
